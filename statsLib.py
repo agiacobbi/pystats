@@ -6,9 +6,12 @@ e = 2.718281
 
 # IN PROGRESS
 def getSet(fileName):
-    with open(fileName, 'rb') as fin:
-        reader = csv.reader(fin)
-        return list(reader)
+    myData = []
+    with open(fileName, 'r') as fin:
+        for line in fin:
+            myData.append(float(line))
+
+    return myData
 
 # calculates sample mean of a dataset
 # dataSet is list of integers or floats
@@ -93,6 +96,9 @@ def cumPoissonProb(m, y):
     for i in range(int(y + 1)):
         cumProb += poissonProb(m, i)
     return cumProb
+
+def xToZ(x, m, s):
+    return ((x - m) / s)
 
 '''
 def main():
